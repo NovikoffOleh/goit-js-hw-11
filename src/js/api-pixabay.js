@@ -35,4 +35,4 @@ export class GalleryAPI {
     this.searchQuery = newQuery;
   }
 }
-Footer
+

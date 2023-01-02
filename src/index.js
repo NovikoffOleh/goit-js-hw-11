@@ -1,8 +1,9 @@
 import { GalleryAPI } from './js/api-pixabay.js';
-import { LoadMoreBtn } from './js/loadBtn.js';
+import { LoadMoreBtn } from './js/loadmoreBtn.js';
 import { Notify } from 'notiflix';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
+
 
 const API_KEY = '32121861-5be12f7d174fbbe08ffb9e651';
 
@@ -25,7 +26,7 @@ async function onFormSubmit(evt) {
   refs.imageContainer.innerHTML = '';
   galleryAPI.query = evt.currentTarget.elements.searchQuery.value.trim();
   if (galleryAPI.query === '') {
-    Notify.warning('Enter something');
+    Notify.warning('Введіть щонебудь');
     return;
   }
   refs.searchForm.reset();
@@ -33,18 +34,18 @@ async function onFormSubmit(evt) {
     const { hits, totalHits } = await galleryAPI.axiosGet();
     if (totalHits === 0) {
       Notify.warning(
-        'Sorry, there are no images matching your search query. Please try again.'
+        'Вибачте, за вашим запитом нічого не знайдено.Спробуйте іншу назву'
       );
       refs.imageContainer.innerHTML = '';
       loadMoreBtn.hide();
       return;
     }
-    Notify.success(`Hooray! We found ${totalHits} images.`);
+    Notify.success(`Привіт! Знайдень ${totalHits} зображень.`);
     onMarkupPhotos(hits);
     simplelightbox.refresh();
     loadMoreBtn.show();
   } catch (error) {
-    Notify.failure('Error');
+    Notify.failure('Помилка');
   }
 }
 
@@ -99,11 +100,11 @@ async function onLoadMoreBtn() {
       loadMoreBtn.hide();
       simplelightbox.refresh();
       Notify.warning(
-        "We're sorry, but you've reached the end of search results."
+        "Це кінець пошуку.Більше нічого немє"
       );
       return;
     }
   } catch (error) {
-    Notify.failure('Error');
+    Notify.failure('Помилка');
   }
 }
