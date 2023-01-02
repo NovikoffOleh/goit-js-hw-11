@@ -1,2 +1,100 @@
 @import './common';
 @import './example';
+button {
+  cursor: pointer;
+  height: 40px;
+  background-color: rgb(85, 118, 239);
+  border-radius: 6px;
+  color: white;
+  padding: 0px 25px;
+  border: none;
+  transition: background-color 300ms linear;
+  &:hover {
+    background-color: rgb(221, 154, 160);
+  }
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+p{
+    font-size: 10px;
+    color: #180564;
+  }
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+.bg-color {
+  background-color: burlywood;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.photo-card {
+  border-radius: 10px;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  flex-basis: calc((100% - 60px) / 4);
+  &:hover{
+    box-shadow: 0px 5px 8px 0px rgba(170, 160, 160, 0.5);
+}
+}
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.info {
+  padding: 10px;
+}
+.gallery-search {
+  display: flex;
+  width: 400px;
+  height: 40px;
+  border-radius: 6px;
+  margin-right: 15px;
+  padding: 15px;
+  color: gray;
+  font-size: 15px;
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+  
+  background-image: url('../images/fon11.jpg');
+  background-size: cover;
+  border-bottom: 1px solid gray;
+  padding: 20px;
+  width: 100%;
+}
+
+.load-more {
+  background-color: rgb(26, 26, 204);
+  border-radius: 6px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  &.is-hiden {
+    display: none;
+  }
+  &:hover {
+    background-color: rgb(136, 19, 35);
+  }
+}
